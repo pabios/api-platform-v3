@@ -19,15 +19,15 @@ class Product
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    #[Groups(['product:read','product:write'])]
+//    #[Groups(['product:read','product:write'])]
     private ?string $name = null;
 
     #[ORM\Column(length: 255)]
-    #[Groups(['product:read','product:write'])]
+//    #[Groups(['product:read','product:write'])]
     private ?string $slug = null;
 
     #[ORM\Column(length: 255)]
-    #[Groups(['product:read','product:write'])]
+//    #[Groups(['product:read','product:write'])]
     private ?string $price = null;
 
     public function getId(): ?int

@@ -23,7 +23,7 @@ class ProductApiToEntityMapper implements  MapperInterface
         assert($dto instanceof ProductResource);
         $productEntity = $dto->id ? $this->productRepository->find($dto->id) : new Product();
         if (!$productEntity) {
-            throw new \Exception('User not found');
+            throw new \Exception('Product not found');
         }
         return $productEntity;
     }
@@ -37,11 +37,8 @@ class ProductApiToEntityMapper implements  MapperInterface
         assert($entity instanceof Product);
         $entity->setName($dto->name);
         $entity->setSlug($dto->slug);
-//        if ($dto->password) {
-//            $entity->setPassword($this->userPasswordHasher->hashPassword($entity, $dto->password));
-//        }
         $entity->setPrice($dto->price);
-        // TODO dragonTreasures if we change them to writeable
+
         return $entity;
     }
 }

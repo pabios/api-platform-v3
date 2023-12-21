@@ -1,5 +1,5 @@
 <?php
-
+// bin/console make:state-processor
 namespace App\State;
 
 use ApiPlatform\Doctrine\Common\State\PersistProcessor;
@@ -26,9 +26,8 @@ class EntityClassDtoStateProcessor implements ProcessorInterface
     {
         $stateOptions = $operation->getStateOptions();
         assert($stateOptions instanceof Options);
-        $entityClass = $stateOptions->getEntityClass();
 
-        assert($data instanceof ProductResource);
+        $entityClass = $stateOptions->getEntityClass();
 
         $entity = $this->mapDtoToEntity($data, $entityClass);
 
@@ -45,4 +44,5 @@ class EntityClassDtoStateProcessor implements ProcessorInterface
     {
         return $this->microMapper->map($dto, $entityClass);
     }
+
 }

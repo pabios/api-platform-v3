@@ -1,7 +1,6 @@
 <?php
 namespace App\ApiResource;
 
-
 use ApiPlatform\Doctrine\Orm\Filter\SearchFilter;
 use ApiPlatform\Doctrine\Orm\State\Options;
 use ApiPlatform\Metadata\ApiFilter;
@@ -38,16 +37,15 @@ use App\State\EntityToDtoStateProvider;
 class ProductResource
 {
     #[ApiProperty(readable: false, writable: false, identifier: true)]
-    public $id;
+    public ?int $id;
 
     #[ApiProperty]
-    public $name;
+    public ?string $name;
 
     #[ApiProperty]
-    public $slug;
-
+    public ?string $slug;
     #[ApiProperty]
-    public $price;
+    public ?string $price;
 }
 
 

@@ -1,5 +1,5 @@
 <?php
-
+// bin/console make:state-provider
 namespace App\State;
 
 use ApiPlatform\Doctrine\Orm\Paginator;
