@@ -12,6 +12,7 @@ use ApiPlatform\Metadata\Get;
 use ApiPlatform\Metadata\GetCollection;
 use ApiPlatform\Metadata\Patch;
 use ApiPlatform\Metadata\Post;
+use App\Controller\Product\GetOneByProductIdController;
 use App\Entity\Product;
 use App\State\EntityClassDtoStateProcessor;
 use App\State\EntityToDtoStateProvider;
@@ -19,11 +20,22 @@ use App\State\EntityToDtoStateProvider;
 #[ApiResource(
     shortName: 'Product',
     operations: [
-        new Get(),
-        new GetCollection(),
-        new Post(),
-        new Patch(),
-        new Delete(),
+        new Get(
+            formats: ['json'=>['application/+json']],
+            controller: GetOneByProductIdController::class
+        ),
+        new GetCollection(
+//            formats: ['json'=>['application/+json']]
+        ),
+        new Post(
+            security: 'is_granted("ROLE_PRODUCT_CREATE")',
+        ),
+        new Patch(
+            security: 'is_granted("EDIT", object)',
+        ),
+        new Delete(
+            security: 'is_granted("ROLE_ADMIN")',
+        )
     ],
     paginationItemsPerPage: 5,
     provider: EntityToDtoStateProvider::class,
@@ -40,7 +52,7 @@ class ProductResource
     public ?int $id;
 
     #[ApiProperty]
-    public ?string $name;
+    public ?string $name;                                               //pabios_af
 
     #[ApiProperty]
     public ?string $slug;
