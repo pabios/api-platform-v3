@@ -26,14 +26,16 @@ use App\State\EntityToDtoStateProvider;
         ),
         new GetCollection(
 //            formats: ['json'=>['application/+json']]
-//            security: 'is_granted("ROLE_PRODUCT_CREATE")'
+            security: 'is_granted("ROLE_PRODUCT_CREATE")'
 
         ),
         new Post(
+            formats: ['json'=>['application/json']],
             security: 'is_granted("ROLE_PRODUCT_CREATE")',
         ),
         new Patch(
-            security: 'is_granted("EDIT", object)',
+//            security: 'is_granted("EDIT", object)',
+//            security: 'is_granted("EDIT") and object.getOwner() === user',
         ),
         new Delete(
             security: 'is_granted("ROLE_ADMIN")',

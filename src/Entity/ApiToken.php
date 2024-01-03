@@ -69,7 +69,7 @@ class ApiToken
         return $this;
     }
 
-    public function getToken(): ?string
+    public function getToken()
     {
         return $this->token;
     }

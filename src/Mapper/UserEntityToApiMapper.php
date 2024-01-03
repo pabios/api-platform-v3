@@ -27,7 +27,7 @@ class UserEntityToApiMapper implements MapperInterface
         assert($dto instanceof UserRessource);
         $dto->email = $entity->getEmail();
         $dto->username = $entity->getUsername();
-//        $dto->dragonTreasures = $entity->getPublishedDragonTreasures()->getValues();
+//        $dto->dragonTreasures = $entity->getPublishedProduct()->getValues();
         $dto->flameThrowingDistance = rand(1, 100);
         return $dto;
     }
