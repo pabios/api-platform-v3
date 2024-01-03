@@ -4,11 +4,11 @@ api_platform:
     formats:
         jsonld: ['application/ld+json']
         json: ['application/+json']
-#    swagger:
-#        api_keys:
-#            access_token:
-#                name: Authorization
-#                type: header
+    swagger:
+        api_keys:
+            access_token:
+                name: Authorization
+                type: header  # envois Bearer Token i.e Bearer tcp_e557758874488484
     docs_formats:
         jsonld: ['application/ld+json']
         jsonopenapi: ['application/vnd.openapi+json']

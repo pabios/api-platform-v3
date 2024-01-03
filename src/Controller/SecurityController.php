@@ -20,9 +20,13 @@ class SecurityController extends AbstractController
             ], 401);
         }
 
+
 //        return new JsonResponse($user->getApiTokens());
-        return new Response(null, 200, [
-            'Location' => $iriConverter->getIriFromResource($user),
+//        return new Response(null, 204, [
+//            'Location' => $iriConverter->getIriFromResource($user),
+//        ]);
+        return $this->json([
+            'user'=> '/api/users/'. $user->getId(),
         ]);
     }
 

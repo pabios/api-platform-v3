@@ -26,6 +26,7 @@ security:
                 password_path: password
             logout:
                 path: app_logout
+#            stateless: true
             access_token:
                 token_handler: App\Security\ApiTokenHandler
 
