@@ -50,17 +50,25 @@ class SecurityController extends AbstractController
     #[Route('/logout', name: 'app_logout')]
     public function logout(): void
     {
-//        throw new \Exception('This should never be reached!');
-        $user = $this->getUser();
-
-        if ($user) {
-            foreach ($user->getApiTokens() as $token) {
-                $user->removeApiToken($token);
-            }
-            $this->entityManager->flush();
-        }
-
-        echo $this->json(['info' => 'Goodbye']);
-
+        throw new \Exception('This should never be reached!');
     }
+//    #[Route('/logout', name: 'app_logout')]
+//    public function logout(): JsonResponse
+//    {
+//        $user = $this->getUser();
+//
+//        if ($user) {
+//            $tokens = $user->getApiTokens();
+//
+//            // Bouclez sur chaque token et supprimez-le
+//            foreach ($tokens as $token) {
+//                $user->removeApiToken($token);
+//            }
+//
+//            // Enregistrez les modifications
+//            $this->entityManager->flush();
+//        }
+//
+//        return $this->json(['info' => 'Goodbye']);
+//    }
 }

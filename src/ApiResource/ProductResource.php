@@ -26,7 +26,8 @@ use App\State\EntityToDtoStateProvider;
         ),
         new GetCollection(
 //            formats: ['json'=>['application/+json']]
-            security: 'is_granted("ROLE_PRODUCT_CREATE")'
+//            security: 'is_granted("ROLE_PRODUCT_CREATE")'
+            security: 'is_granted("authenticated_fully")'
 
         ),
         new Post(

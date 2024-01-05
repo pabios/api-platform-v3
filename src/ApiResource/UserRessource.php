@@ -16,6 +16,7 @@ use App\Entity\User;
 
 use App\State\EntityClassDtoStateProcessor;
 use App\State\EntityToDtoStateProvider;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Constraints as Assert;
 
 #[ApiResource(
@@ -41,6 +42,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 #[ApiFilter(SearchFilter::class, properties: [
     'username' => 'partial',
 ])]
+#[UniqueEntity(fields: ['email'],message: 'un compte existe deja avec cet Email')]
 class UserRessource
 {
     #[ApiProperty(readable: false, writable: false, identifier: true)]
@@ -58,10 +60,10 @@ class UserRessource
     public ?string $password = null;
 
 //    /**
-//     * @var array<int, DragonTreasure>
+//     * @var array<int, Product>
 //     */
 //    #[ApiProperty(writable: false)]
-//    public array $dragonTreasures = [];
+//    public array $products = [];
     #[ApiProperty(writable: false)]
     public int $flameThrowingDistance = 0;
 

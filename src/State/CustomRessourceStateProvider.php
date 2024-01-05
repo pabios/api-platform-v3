@@ -59,6 +59,7 @@ class CustomRessourceStateProvider implements ProviderInterface
             $quest = new CustomRessource(new \DateTimeImmutable(sprintf('- %d days', $i)));
             $quest->name = sprintf('Quest %d', $i);
             $quest->description = sprintf('Description %d', $i);
+            $quest->lastUpdated= new \DateTimeImmutable(sprintf('-%d days',rand(10,100)));
 
             $randomProduct = $products[array_rand($products)];
             $quest->product = new QuestProduct(
