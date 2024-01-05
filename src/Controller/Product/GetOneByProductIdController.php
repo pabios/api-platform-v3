@@ -17,8 +17,9 @@ class GetOneByProductIdController extends AbstractController
     }
     public function __invoke(Product $product)
     {
-
-        return $this->productRepository->findOneBy(['id' => $product->getId()]);
-//        return 'bonjour';
+        //@todo test sending email i.e here
+        //$this->container->get('name');
+        return $this->getParameter('app.name');
+        //return $this->productRepository->findOneBy(['id' => $product->getId()]);
     }
 }
