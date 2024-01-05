@@ -25,10 +25,7 @@ use App\State\EntityToDtoStateProvider;
             controller: GetOneByProductIdController::class
         ),
         new GetCollection(
-//            formats: ['json'=>['application/+json']]
-//            security: 'is_granted("ROLE_PRODUCT_CREATE")'
-            security: 'is_granted("authenticated_fully")'
-
+         security: 'is_granted("IS_AUTHENTICATED_FULLY")',
         ),
         new Post(
             formats: ['json'=>['application/json']],

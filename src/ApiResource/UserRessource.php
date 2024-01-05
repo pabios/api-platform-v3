@@ -42,7 +42,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 #[ApiFilter(SearchFilter::class, properties: [
     'username' => 'partial',
 ])]
-#[UniqueEntity(fields: ['email'],message: 'un compte existe deja avec cet Email')]
+//#[UniqueEntity(fields: ['email'],message: 'un compte existe deja avec cet Email')]
 class UserRessource
 {
     #[ApiProperty(readable: false, writable: false, identifier: true)]
